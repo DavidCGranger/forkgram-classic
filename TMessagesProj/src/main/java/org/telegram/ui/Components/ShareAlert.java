@@ -136,7 +136,6 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
         public boolean replyTo = false;
     }
 
-    private int sizeButton = 46;
     private int btnContainerW = 60;
 
     private FrameLayout frameLayout;
@@ -1148,7 +1147,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
 
             @Override
             protected boolean allowSelectChildAtPosition(float x, float y) {
-                return y >= dp(darkTheme && linkToCopy[1] != null ? 111 : 58) + (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0);
+                return y >= dp(darkTheme && linkToCopy[1] != null ? 111 : 58);
             }
 
             @Override
@@ -1224,7 +1223,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
 
             @Override
             protected boolean allowSelectChildAtPosition(float x, float y) {
-                return y >= dp(darkTheme && linkToCopy[1] != null ? 111 : 58) + (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0);
+                return y >= dp(darkTheme && linkToCopy[1] != null ? 111 : 58);
             }
 
             @Override
@@ -1796,16 +1795,16 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
                 info.asAlbum = groupAnyItems;
                 info.noText = nonText;
                 info.asCopy = !nonText;
-   
+
                 final int account = currentAccount;
                 for (int a = 0; a < selectedDialogs.size(); a++) {
                     long key = selectedDialogs.keyAt(a);
                     TLRPC.TL_forumTopic keyTopic = selectedDialogTopics.get(selectedDialogs.valueAt(a));
-   
+
                     if (!info.replyTo) {
                         info.replyTo = (AsCopy.TakeReplyToDraft(key, keyTopic, account, false) != 0);
                     }
-   
+
                     final boolean hasComment = (frameLayout2.getTag() != null
                         && commentTextView.length() > 0);
                     final String maybeReplaceText = nonText
@@ -1881,7 +1880,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
             }
             dismiss();
         };
-   
+
         int anonRightMargin = groupAnyItems ? 8 : 60;
 
         anonymButtonContainer = new FrameLayout(context);
@@ -2064,7 +2063,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
     protected void onShareStory(View cell) {
 
     }
-    
+
     private void showPremiumBlockedToast(View view, long dialogId) {
         AndroidUtilities.shakeViewSpring(view, shiftDp = -shiftDp);
         BotWebViewVibrationEffect.APP_ERROR.vibrate();
@@ -3174,7 +3173,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
                 case 1:
                 default: {
                     view = new View(context);
-                    view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, dp(darkTheme && linkToCopy[1] != null ? 109 : sizeButton)));
+                    view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, dp(darkTheme && linkToCopy[1] != null ? 109 : 56)));
                     break;
                 }
             }
@@ -3712,7 +3711,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
                 default:
                 case 1: {
                     view = new View(context);
-                    view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, dp(darkTheme && linkToCopy[1] != null ? 109 : sizeButton)));
+                    view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, dp(darkTheme && linkToCopy[1] != null ? 109 : 56)));
                     break;
                 }
                 case 2: {
